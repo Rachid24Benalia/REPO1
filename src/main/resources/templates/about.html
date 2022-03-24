@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+layout:decorate="~{template1.html}"
+  >
+  
+<head>
+<meta charset="UTF-8">
+<title>About</title>
+ <link rel="stylesheet" type="text/css"
+ th:href="@{/css/about.css}"/>
+  
+</head>
+<body>     	
+       	<div layout:fragment="content">
+				  <div class="slide">
+         <img src="../assets/about.jpeg"/>
+         <h1>About Us</h1>
+     </div>
+
+
+     <div class="container about">
+        <div class="row">
+             <div class="col-md-5 info">
+                 <h1>Bienvenu dans dream Weeding </h1>
+			     <p>
+                Toutes nos félicitations les plus chaleureuses. 
+                Nous vous souhaitons joie, amour et bonheur pour toujours. Nous vous adressons nos meilleurs vœux de bonheur et toutes nos félicitations pour ce magnifique mariage.
+                Nous sommes ici pour vous accompagner tout au long de vos préparations pour organiser votre jour de reve.
+                </p>
+                 <h5><a href="#">View Our packages</a></h5>           
+             </div>
+            
+             <div class="col-md-7">
+                 <div id="slideshow">
+                     <div>
+                       <img src="./assets/slide1.jpg">
+                     </div>
+                     <div>
+                       <img src="./assets/slide2.jpg">
+                     </div>
+                     <div>
+                         <img src="./assets/slide3.jpg">
+                     </div>
+                  </div>
+                   
+             </div>
+        </div>
+    </div>
+
+
+   <div class="row chiffres">
+    <div class="col-md-12 cle">
+           <div class="row">
+                <div class="col-md-12">
+                    <h3>Why Us
+                    </h3>
+                </div>
+              
+           </div>
+           <div class="row field">
+            <div class="col-md-4">
+<i class="fa fa-users" aria-hidden="true"></i>
+              <h1 class="counter" >1500</h1>
+                <h4>Experts et Profssionel equipe</h4><BR>
+                </div>
+                  <div class="col-md-4">
+<img src="../assets/wedding-rings.png"/>
+        <h1 class="counter">6000</h1>
+                    <h4>Marriages</h4><br>
+                  </div>
+              
+                <div class="col-md-4">
+<i class="fa fa-briefcase" aria-hidden="true"></i>
+                  <h1 class="counter">50</h1>
+                  <h4>Ans d'Expérience</h4><BR>
+                  </div>
+               
+           </div>
+    </div>
+
+  </div>
+
+
+
+
+   <div class="container clientSay">
+       <div class="row">
+           <div class="col-md-12">
+                   <div class="row">
+                       <div class="col-md-12">
+                           <h1>Nos Clients</h1>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                    <div id="client">
+                                        <div class="comments">
+                                               <div class="firstComment">
+                                                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, dolor modi. Sunt ea, non enim repellendus, corporis labore fuga quisquam pariatur nulla aliquam qui porro nemo, incidunt ab voluptatibus possimus?</p>
+                                                   <img src="./assets/client1.jpeg"/>
+                                                   <h5>Nouheila Assiar</h5>
+                                                   <div class="rating">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                               </div>
+                                               </div>
+                                               <div class="secondComment">
+                                                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus, dolor modi. Sunt ea, non enim repellendus, corporis labore fuga quisquam pariatur nulla aliquam qui porro nemo, incidunt ab voluptatibus possimus?</p>
+                                                   <img src="./assets/client2.jpeg"/>
+                                                   <h5>Ilyas Assiar</h5>
+                                                   <div class="rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                   </div>
+                                               </div>
+                                        </div>
+                                    </div>    
+                            </div>
+                       <div class="col-md-1"></div>
+
+                   </div>
+                    
+                    
+               
+           </div>
+       </div>
+   </div>
+
+
+   <div class="container team">
+       <h1>Our Team</h1>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                 <img src="./assets/nouha.jpeg"/>
+                 <h3>Nouheila Assiar</h3>
+                 <div class="social">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                 </div>
+            </div>
+            <div class="col-md-4">
+                <img src="./assets/adminpic.jpg"/>
+                <h3>Rachid Benalia</h3>
+                <div class="social ik">
+                   <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                   <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                   <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                   <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="./assets/nissrine.png"/>
+                <h3>Nisrine Bajja</h3>
+                <div class="social">
+                   <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                   <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                   <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                   <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                </div>
+            </div> 
+            <div class="col-md-1"></div>
+
+        </div>
+
+   </div>
+        </div>
+        
+        
+    
+        
+        
+</body>
+</html>

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Asap:ital@1&family=Cairo:wght@100&family=Open+Sans:wght@300&family=Roboto+Slab:wght@200&family=Roboto:wght@100&family=Waterfall&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url("../assets/slide1.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+.card{
+  border-left:5px solid rgb(168, 137, 79);
+
+}
+
+label {
+    display:block;
+}
+.form-group i {
+    margin-right:5px;
+    font-size: 18px;
+}
+a {
+    color: rgb(148, 120, 69);
+}
+.form-control {
+    display:inline;
+    height: 50px;
+    margin-bottom:15px;
+    width:90%;
+}
+.btn {
+    background-color:rgb(168, 137, 79);
+    float: right;
+    border-color: rgb(168, 137, 79);
+ 	padding:15px 10px 15px 10px;
+    margin-left:300px;
+    margin-top:-5px;
+      font-family: 'Amiri', serif;
+    font-size:20px;
+    
+}
+.card-header h3{
+	  font-family: 'Amiri', serif;
+	  font-size:30px;
+    padding-bottom:30px;
+    border-bottom: 2px solid rgb(168, 137, 79) ;
+    color:#DCB253;
+}
+.msg {
+	margin-bottom:20px;
+	font-family: 'Amiri', serif;
+	  font-size:20px;
+	
+}
+label {
+	color:#DCB253;
+}
+.inscrire{
+	margin-right:10px;
+} 
+.inscrire:hover {
+	color:#DCB253;
+}

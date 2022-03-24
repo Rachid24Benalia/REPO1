@@ -1,0 +1,386 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Asap:ital@1&family=Cairo:wght@100&family=Open+Sans:wght@300&family=Roboto+Slab:wght@200&family=Roboto:wght@100&family=Waterfall&display=swap');
+
+* {
+    margin:0;
+}
+
+a {
+    color: black;
+}
+
+
+/*header*/
+/* haut | droit | bas | gauche */
+/* vertical | horizontal */
+
+
+/*le body*/
+
+hr {
+    margin-top: 30px;
+}
+.title {
+  margin-left: 50px;
+  font-family: 'Amiri', serif;
+}
+.ou{
+	margin-left:20px;
+	}
+.title h3 {
+    font-size: 30px;
+    color: #DCB253;
+}
+.title h4 {
+    font-size: 20px;
+    margin-top:18px;
+}
+.title i {
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #DCB253;
+
+}
+.title h5 {
+    margin-top:15px;
+}
+.reserver {
+    margin-top:20px;
+    font-size:18px;
+}
+.reserver button {
+    padding: 10px 10px;
+    width: 150px;
+    border-radius: 6px;
+    border:1px solid #DCB253;
+    background-color:#DCB253;
+    color: white; 
+    font-size: 18px;
+    margin-right: 4px;
+}
+
+.reserver button:hover {
+    transform:scale(1.1);
+}
+.carousel {
+    width: 820px;
+    height: 550px;
+
+}
+.carousel img {
+    width: 900px;
+    height: 550px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.card {
+    margin-left: 160px;
+    width: 400px;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding:20px;
+    text-align: center;
+    font-family: 'Amiri', serif;
+    font-size:20px;
+     height:500px;
+    
+}
+.card h3 {
+    color: #DCB253;
+    margin-top: 16px;
+      font-family: 'Amiri', serif;
+    font-size:20px;
+    
+}
+.card button {
+  padding: 10px 10px;
+  width: 130px;
+  border-radius: 6px;
+  border:1px solid #DCB253;
+  background-color:#DCB253;
+  color: white; 
+  font-size: 20px;
+  margin-left:110px;
+  margin-top:10px;
+
+}
+.card button:hover {
+  transform: scale(1.1);
+}
+.details {
+
+  margin-top: 60px;
+  margin-bottom: 120px;
+  margin-left: 120px;
+  font-family: 'Amiri', serif;
+
+}
+.details h3 {
+  color: #DCB253;
+  font-size: 30px;
+}
+.details p{
+  font-size: 20px;
+  text-align: justify;
+  width: 800px;
+  margin-top:20px;
+}
+
+
+
+/*calendrier*/
+
+input,
+button,
+textarea {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+
+/* Basis */
+
+.btn {
+    font-family: 'Open Sans';
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: #fff;
+    color: #262626;
+    border-radius: 10px;
+    height: 50px;
+    font-weight: 600;
+    min-width: 100px;
+    padding: 0px 20px;
+    transition: 0.2s ease;
+    cursor: pointer;
+    outline: 0;
+}
+
+.btn:hover {
+    color: #FFF;
+    background: #DCB253;
+    transform:scale(1.1);
+}
+
+.btn-small {
+    min-width: 50px;
+    color:white;
+    background-color:#DCB253;
+    font-size:18px;
+}
+
+
+.btn-day {
+    font-family: 'Open Sans';
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 99;
+    outline: 0;
+    border-radius: 10px;
+    transition: 0.4s all;
+}
+
+.btn-day.active {
+    color: #FFF;
+    font-weight: 600;
+    z-index: 99;
+}
+
+.btn-day.active::before {
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: #B0F2B6;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.text-field {
+    padding: 10px;
+    height: 50px;
+    width: 200px;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    margin: 0px 10px 0 0;
+}
+
+.title {
+    font-size: 1.3em;
+    margin-bottom:-20px;
+ 
+}
+
+.subtitle {
+    font-size: 1.1em;
+}
+
+
+
+
+
+
+
+/* Calendar */
+
+.containercalendrier {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:-250px;
+    margin-top:-60px;
+}
+
+.calendar-assets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+
+#currentDate{
+  text-align:center;
+  font-size:20px;
+}
+
+.fieldc {
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.fieldc label {
+    margin: 2px;
+}
+
+.form-input {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-assets {
+    display: flex;
+    justify-content: space-between;
+    width: 324px;
+}
+
+
+
+.day-assets .btn:nth-child(2) i {
+    padding: 0 10px 0 0 !important;
+}
+
+.calendar {
+    height: 370px;
+    width: 324px;
+    border-radius: 18px;
+    background: #ffffff;
+	  padding: 10px;
+	  user-select: none;
+}
+
+.headerc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 18px 18px 0px 0px;
+    padding: 15px;
+    height: 50px;
+    width: 100%;
+    color: #262626;
+}
+
+.month {
+    font-size: 0.7em;
+}
+
+.icon {
+    padding: 10px;
+    font-size: 1em;
+    margin: 0 0 0 5px;
+    background: #ffffff;
+    color: #455af7;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+#calendar {
+    width: 100%;
+}
+
+.weekends th {
+    font-size: 1em;
+    color: gray;
+    font-weight: 400;
+    width: 40px;
+    margin: 10px 0;
+}
+
+#calendar tr {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 3px;
+}
+
+#calendar td {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 99;
+}
+.off {
+    background-color: #F8B3Bc;
+}
+#id {
+	visibility:hidden;
+	margin-left:-70px;
+}
+#date{
+	border:1px solid #DCB253;
+	margin-left:-100px;
+}
+#table {
+	border:1px solid #DCB253;
+	    font-family: 'Amiri', serif;
+    font-size:14px;
+}
+#table i {
+	color:#DCB253;
+		font-size:20px;
+	
+}
+#month-header{
+	color:#DCB253;
+}
+
+/*le body*/

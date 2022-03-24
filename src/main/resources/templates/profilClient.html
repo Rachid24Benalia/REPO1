@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+layout:decorate="~{template1.html}"
+  >
+<head>
+<meta charset="UTF-8">
+<title>Bienvenu dans Sla O Slam</title>
+ <link rel="stylesheet" type="text/css"
+ th:href="@{/css/profilClient.css}"/>
+</head>
+
+<body>
+       	<div layout:fragment="content">
+       	   <div class=" contenu">
+       	       <div class="row">
+       	           <div class="col-md-12">
+       	              <div class="row bande">
+       	                <div class="col-md-2">
+       	                <img src="\assets\adminpic.jpg"/>
+       	                </div>
+       	                 <div class="col-md-10">
+       	                 	<h3><span th:text="${client.prenom.toUpperCase()}"></span>
+       	                 	<span th:text="${client.nom.toUpperCase()}"></span></h3>
+       	                </div>
+       	              </div>
+       	              <div class="msg">
+       	               <h2>Félicitations</h2>
+       	               <p>Chère <span th:text="${client.prenom}"></span>, que votre union soit le début d’une belle aventure remplie de joie et de bonheur ! Nous vous souhaitons d’être heureux tout au long de votre chemin de vie.
+       	               Nous sommes ici pour vous accompagner tout au long de vos préparations de votre jour de mariage.
+       	               </p>
+       	              </div>
+       	              <div class="row">
+       	                <div class="col-md-3 infor">
+       	                 <h2>Informations personnelles</h2>
+       	                     <div class="bio-row first">
+			                      <p><span>Prenom </span>:
+			                      <label th:text="${client.prenom}"></label>
+			                      </p>
+			                  </div>
+			                  <div class="bio-row">
+			                      <p><span>Nom</span>: 
+			                    <label th:text="${client.nom}"></label>		                      
+			                      </p>
+			                  </div>
+			                   <div class="bio-row">
+			                      <p><span>CIN</span>: 
+			                      <label th:text="${client.cin}"></label>
+			                     
+			                      </p>
+			                  </div>
+			                  <div class="bio-row">
+			                      <p><span>ville </span>:
+			                   <label th:text="${client.ville}"></label>
+			                      
+			                      </p>
+			                  </div>
+			                  <div class="bio-row">
+			                      <p><span>Date De Naissance</span>: 
+			                      29-Aout-2000</p>
+			                  </div>
+
+			                  <div class="bio-row">
+			                      <p><span>Adresse Email </span>: 
+			                    <label th:text="${client.email}"></label>     
+			                      </p>
+			                  </div>
+
+			                  <div class="bio-row">
+			                      <p><span>Numero de téléphone</span>: 
+			                      <label th:text="${client.phone_number}"></label>
+			                     
+			                      </p>
+			                  </div>
+			               <h2 class="section">Prestataires</h2>
+			               <div class="bio" >
+			                   <a >Salle de reception</a>		                
+			               </div>
+			                 <div class="bio">
+			                   <a>Neggafa</a>		                
+			               </div>  
+			               <div class="bio">
+			                   <a>Traiteur</a>		                
+			               </div>
+			                <div class="bio">
+			                   <a>Orchestre</a>		                
+			               </div>
+			                <div class="bio">
+			                   <a>Photographe</a>		                
+			               </div> 
+			               <div class="bio">
+			                   <a>Transport</a>		                
+			               </div>
+   			             
+			                  
+       	                </div>
+       	                <div class="col-md-7 other ">
+       	                    <div class="row">
+  							 <h3>Mes prestataires</h3>
+       	                            <div class="col-md-3 item" th:each="w:${wishes}">
+					                    <div class="card">
+                      <img th:src="@{${'/..'+w.service.images[0].chemain_image }}"  alt=""/>
+					                        <div class="info">
+					                          <h2><label th:text="${w.service.nom_service}"></label></h2>
+					                          <h4><i class="fa fa-star"></i> <label th:text="${w.service.rating}"></label>-<label th:text="${w.service.ville}"></label></h4>
+					                          <h4>A partir de <label th:text="${w.service.Budget_service}"></label>Dh <i class="fa fa-user-o" aria-hidden="true"></i>
+					                             <label th:text="${w.service.nbr_invites_min}"></label>-<label th:text="${w.service.nbr_invites_max}"></label>
+					                          </h4>
+					                          <button>Nous contacter</button>
+					                        </div>
+					                     </div>
+									</div>
+                  
+       	                    </div>
+       	                     <div class="row second">
+       	                     	 <h3>Mes Reservations</h3>
+       	                     	    <div class="col-md-4"  th:each="r:${reservations}">
+					                    		 <button class="carde">
+													    <h1 class="til" th:text="${r.service.nom_service.toUpperCase()}"></h1>
+													    <h4 class="ti"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+													    LE <span th:text="${r.date}"></span> À 16:00 PM</h4>
+
+													    <p class="ti">
+														    <i class="fa fa-address-card" aria-hidden="true"></i>
+														    <span th:text="${r.prestataire.adresse}"></span>
+														    </p>
+													    <p class="ti">
+														    <i class="fa fa-phone" aria-hidden="true"></i>
+														    <span th:text="${r.prestataire.phone_number}"></span>
+													    </p>
+												</button>
+					                 </div>
+       	                          
+       	                     </div>
+							
+       	                </div>
+       	              
+       	              </div>
+       	              
+       	           
+       	           </div>
+       	       
+       	       </div>
+       	   
+       	   </div>
+       	</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+layout:decorate="~{template1.html}"
+  >
+<head>
+<meta charset="UTF-8">
+<title>Bienvenu dans Dream Weeding</title>
+ <link rel="stylesheet" type="text/css"
+ th:href="@{/css/profilClient.css}"/>
+</head>
+
+<body>
+       	<div layout:fragment="content">
+       	   <img src="./assets/profil.jpeg" class="bienvenu"/>     
+		       <div class="row">
+		           <div class="col-md-1"></div>
+		           <div class="col-md-11">
+			               <div class="intro">
+			                    <img src="./assets/nouha.jpeg"/>
+			                    <h4> <label th:text="${client.nom}+${client.prenom}"></label></h4>
+			                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta rerum sapiente assumenda beatae reiciendis nemo odit facere, dolores dicta, ducimus est, tenetur dolorum modi optio quae! Voluptatem rerum corrupti ea.
+</p>
+			               </div>
+			               
+			               <div class="field">
+			                    <h3><i class="fa fa-id-card-o" aria-hidden="true"></i>
+			                    MY PERSONNAL INFORMATION</h3>
+			                    <div class="panel-body bio-graph-info">
+						              <div class="row">
+						                  <div class="bio-row">
+						                      <p><span>First Name </span>:
+						                      <label th:text="${client.prenom}"></label>
+						                     
+						                      </p>
+						                  </div>
+						                  <div class="bio-row">
+						                      <p><span>Last Name </span>: 
+						                    <label th:text="${client.nom}"></label>
+						                      
+						                      </p>
+						                  </div>
+						                  <div class="bio-row">
+						                      <p><span>ville </span>:
+						                   <label th:text="${client.ville}"></label>
+						                      
+						                      </p>
+						                  </div>
+						                  <div class="bio-row">
+						                      <p><span>Birthday</span>: 
+						                      13 July 1983</p>
+						                  </div>
+						                  <div class="bio-row">
+						                      <p><span>Occupation </span>: UI Designer</p>
+						                  </div>
+						                  <div class="bio-row">
+						                      <p><span>Email </span>: 
+						                    <label th:text="${email}"></label>     
+						                      </p>
+						                  </div>
+						                  <div class="bio-row">
+						                      <p><span>Mobile </span>: 
+						                      <label th:text="${client.phone_number}"></label>
+						                     
+						                      </p>
+						                  </div>
+						                 
+						              </div>
+						          </div>
+			                 </div>
+			               
+			               <div class="field">
+			                    <h3><i class="fa fa-address-book-o" aria-hidden="true"></i>
+			                    RESERVATION</h3>
+			                    <div class="row">
+					                    <div class="col-md-3">
+					                    		 <button class="carde">
+													    <h1 class="til">PALAIS ROYAL RAMSSISS</h1>
+													    <h4 class="ti"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+													    LE 03-05-2021 AT 16:00 PM</h4>
+
+													    <p class="ti">
+														    <i class="fa fa-address-card" aria-hidden="true"></i>
+														    Saint-Paul-de-Jarrat, Ariège
+														    </p>
+													    <p class="ti">
+														    <i class="fa fa-phone" aria-hidden="true"></i>
+														    06 50 76 74 01
+													    </p>
+												</button>
+					                    </div>
+			                    </div>
+			               </div>
+			               
+			               <div class="field">
+			                    <h3><i class="fa fa-heart" aria-hidden="true"></i>
+			                    WISHLIST</h3>
+			                    <div class="row">
+			                          <div class="col-md-3">
+					                    <div class="card">
+					                        <img src="../assets/slide1.jpeg" alt="">
+					                        <i class="fa fa-heart-o favori" aria-hidden="true"></i>
+					                        <div class="info">
+					                          <h2>Maison de l'Amérique Latine</h2>
+					                          <h4><i class="fa fa-star"></i> 4.9 - Marrakech</h4>
+					                          <h4>A partir de 2339Dh <i class="fa fa-user-o" aria-hidden="true"></i>
+					                             80-220
+					                          </h4>
+					                          <button><a>Nous contacter</a></button>
+					                        </div>
+					                     </div>
+									</div>
+									        <div class="col-md-3">
+					                    <div class="card">
+					                        <img src="../assets/slide1.jpeg" alt="">
+					                        <i class="fa fa-heart-o favori" aria-hidden="true"></i>
+					                        <div class="info">
+					                          <h2>Maison de l'Amérique Latine</h2>
+					                          <h4><i class="fa fa-star"></i> 4.9 - Marrakech</h4>
+					                          <h4>A partir de 2339Dh <i class="fa fa-user-o" aria-hidden="true"></i>
+					                             80-220
+					                          </h4>
+					                          <button><a>Nous contacter</a></button>
+					                        </div>
+					                     </div>
+									</div>
+									     <div class="col-md-3">
+					                    <div class="card">
+					                        <img src="../assets/slide2.jpeg" alt="">
+					                        <i class="fa fa-heart-o favori" aria-hidden="true"></i>
+					                        <div class="info">
+					                          <h2>Maison de l'Amérique Latine</h2>
+					                          <h4><i class="fa fa-star"></i> 4.9 - Marrakech</h4>
+					                          <h4>A partir de 2339Dh <i class="fa fa-user-o" aria-hidden="true"></i>
+					                             80-220
+					                          </h4>
+					                          <button><a>Nous contacter</a></button>
+					                        </div>
+					                     </div>
+									</div>
+			                    </div>
+			               </div>           
+		           </div>
+		           
+		
+		       </div>
+		   </div>
+</body>
+</html>-- -->

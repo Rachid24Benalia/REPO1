@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+layout:decorate="~{template1.html}"
+  >
+<head>
+<meta charset="UTF-8">
+<title>Bienvenu dans Dream Weeding</title>
+ <link rel="stylesheet" type="text/css"
+ th:href="@{/css/profilClient.css}"/>
+</head>
+
+<body>
+       	<div layout:fragment="content">
+             <div class="contenu">
+       	       <div class="row">
+       	           <div class="col-md-12">
+       	              <div class="row bande">
+       	                <div class="col-md-2">
+       	                <img src="assets/user.jpeg"/>
+       	                </div>
+       	                 <div class="col-md-10">
+       	                 	<h3><span th:text="${presta.prenom.toUpperCase()}"></span>
+       	                 	<span th:text="${presta.nom.toUpperCase()}"></span></h3>
+       	                </div>
+       	              </div>
+       	              <div class="msg">
+       	               <h2>Félicitations</h2>
+       	               <p>Chère <span th:text="${presta.prenom}"></span>,Bienvenu dans notre site SlawSlam, nous  vous remercions pour votre  inscription,
+       	                Vous faites désormais partie de notre communauté ,nous espérons élaborer afin de garantir les meilleurs services pour nos clients.
+       	               </p>
+       	              </div>
+       	              <div class="row">
+       	                <div class="col-md-3 infor">
+       	                 <h2>Informations personnelles</h2>
+       	                     <div class="bio-row first">
+			                      <p><span>Prenom </span>:
+			                      <label th:text="${presta.prenom}"></label>
+			                      </p>
+			                  </div>
+			                  <div class="bio-row">
+			                      <p><span>Nom</span>: 
+			                    <label th:text="${presta.nom}"></label>		                      
+			                      </p>
+			                  </div>
+			                   <div class="bio-row">
+			                      <p><span>CIN</span>: 
+			                      <label th:text="${presta.cin}"></label>
+			                     
+			                      </p>
+			                  </div>
+			                  <div class="bio-row">
+			                      <p><span>ville </span>:
+			                   <label th:text="${presta.adresse}"></label>
+			                      
+			                      </p>
+			                  </div>
+			                  <div class="bio-row">
+			                      <p><span>Date De Naissance</span>: 
+			                      29-Aout-2000</p>
+			                  </div>
+
+			                  <div class="bio-row">
+			                      <p><span>Adresse Email </span>: 
+			                    <label th:text="${presta.email}"></label>     
+			                      </p>
+			                  </div>
+
+			                  <div class="bio-row">
+			                      <p><span>Numero de téléphone</span>: 
+			                      <label th:text="${presta.phone_number}"></label>
+			                     
+			                      </p>
+			                  </div>
+			               <h2 class="section">Prestataires</h2>
+			               <div class="bio" >
+			                   <a >Salle de reception</a>		                
+			               </div>
+			                 <div class="bio">
+			                   <a>Neggafa</a>		                
+			               </div>  
+			               <div class="bio">
+			                   <a>Traiteur</a>		                
+			               </div>
+			                <div class="bio">
+			                   <a>Orchestre</a>		                
+			               </div>
+			                <div class="bio">
+			                   <a>Photographe</a>		                
+			               </div> 
+			               <div class="bio">
+			                   <a>Transport</a>		                
+			               </div>
+   			             
+			                  
+       	                </div>
+       	                <div class="col-md-9 other rese">
+       	                    <div class="row">
+  							 <h3>Mes services</h3>
+       	                            <div class="col-md-3 item" th:each="s:${presta.services}">
+					                    <div class="card">
+                      <img th:src="@{${'/..'+s.images[0].chemain_image }}"  alt=""/>
+					                        <div class="info">
+					                          <h2><label th:text="${s.nom_service}"></label></h2>
+					                          <h4><i class="fa fa-star"></i> <label th:text="${s.rating}"></label>-<label th:text="${s.ville}"></label></h4>
+					                          <h4>A partir de <label th:text="${s.Budget_service}"></label>Dh <i class="fa fa-user-o" aria-hidden="true"></i>
+					                             <label th:text="${s.nbr_invites_min}"></label>-<label th:text="${s.nbr_invites_max}"></label>
+					                          </h4>
+	 						  				<a  th:href="@{${'/detail?idService='+s.id_service}}">
+	                       						 <button>Détail</button>
+	                       					 </a>
+                       					 					                       
+                       				    </div>
+					                     </div>
+									</div>
+									<div class="col-md-3 add item">
+									    <div class="card">  
+									    <a th:href="@{/addServicepre}">
+                       						 <button> <i class="fa fa-plus"></i></button>
+                       				     </a>
+									    </div>
+											
+									</div>
+                  
+       	                    </div>
+       	                     <div class="row second">
+       	                     	 <h3>La liste des réservations des clients</h3>
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Identifiant</th>
+								<th class="column2">client</th>
+								<th class="column3">Email</th>
+							    <th class="column4">télephone</th>
+							    <th class="column5">Service</th>
+							    <th class="column6">Date</th>
+							
+							</tr>
+						</thead>
+						<tbody>
+								<tr th:each="r:${presta.reservations}">
+									<td class="column1" th:text="${r.id_reservation}"></td>
+									<td class="column2" ><span th:text="${r.client.prenom}"></span>  <span th:text="${r.client.nom}"></span></td>
+									<td class="column3" th:text="${r.client.email}">iPhone X 64Gb Grey</td>
+									<td class="column4" th:text="${r.client.phone_number}">$999.00</td>
+									<td class="column5" th:text="${r.service.nom_service}">1</td>
+									<td class="column6" th:text="${r.date}">$999.00</td>
+								</tr>
+								
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+       	                          
+       	                     </div>
+							
+       	                </div>
+       	              
+       	              </div>
+       	              
+       	           
+       	           </div>
+       	       
+       	       </div>
+       	   
+       	   </div>
+</body>
+
+</html>

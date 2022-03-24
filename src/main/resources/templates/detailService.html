@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+layout:decorate="~{template1.html}"
+  >
+  <head>
+<meta charset="UTF-8">
+<title>Detail Service</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+ <link rel="stylesheet" type="text/css"
+ th:href="@{/css/detailService.css}"/>
+  
+</head>
+<body>
+    <div layout:fragment="content">
+    <hr/>
+    		<div class="title">
+        <h3  th:text="${service.nom_service}"></h3>
+        <h4><i class="fa fa-map-marker" aria-hidden="true"></i>
+            <label th:text="${service.prestataire.adresse}"></label> <i class="fa fa-phone" aria-hidden="true"></i>
+            <label th:text="${service.prestataire.phone_number}"></label></h4>
+            <div class="reserver">
+               <a th:href="@{/login}"> <button>Nous contacter</button></a>
+                <i class="fa fa-star" aria-hidden="true"></i>5.0 
+            </div>
+  
+    </div>
+    <hr/>
+    <div class="row content">
+      
+        <div class="col-md-6 ou" >
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                <div class="carousel-inner" >
+                  <div class="carousel-item active" data-interval="1000" >
+                    <img th:src="@{${'/..'+service.images[0].chemain_image }}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item" th:each="i:${service.images}">
+                    <img th:src="@{${'/..'+i.chemain_image}}" class="d-block w-100" alt="...">
+                  </div>
+          
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+        </div>
+
+        <div class="col-md-5">
+           <div class="card">
+                <h1>Informations importantes</h1>
+                <h3>Service à partir de <label th:text="${service.Budget_service}"></label>MAD </h3>
+                <h3><i class="fa fa-user-o" aria-hidden="true"></i>
+                    nombre d'invités</h3>
+                <p><label th:text="${service.nbr_invites_min}"></label>-
+                <label th:text="${service.nbr_invites_max}"></label> invités</p>
+                  <h3>Localisation</h3>
+                <label th:text="${service.ville}"></label>
+                <h3>A propos de nous</h3>
+                <p th:text="${service.description}"></p>
+                          </div>
+        </div>
+        
+    <div class="row details">
+      <div class="col-md-8">
+               <div >
+                   <h3>Prestation</h3>
+                   <p class="description" th:text="${service.description}">
+                   </p>
+               </div>
+
+      </div>
+      
+          <!-- -calendreir de reservation -->
+          
+          <div class="col-md-4" sec:authorize="isAuthenticated()">
+	           		 <div class="containercalendrier">
+					        <div class="calendar-assets">
+								            <div class="fieldc">
+								                <form class="form-input" id="date-search" th:action="@{/saveDate}" method="post">
+								                    <input type="number" th:value="${service.id_service}" name="id" id="id">
+								                    <input type="date" class="text-field" name="date" id="date" required>
+								                    <button type="submit" class="btn btn-small" title="reesrvez">Reservez</button>
+								                </form>
+								            </div>
+					        </div>
+					        <div class="calendar" id="table">
+					            <div class="headerc">
+					                <div class="month" id="month-header">
+					
+					                </div>
+					                <div class="buttons">
+					                    <button class="icon" onclick="prevMonth()" title="Mês anterior"><i class="fa fa-angle-left" aria-hidden="true"></i>
+</button>
+					                    <button class="icon" onclick="nextMonth()" title="Próximo mês"><i class="fa fa-angle-right "></i></button>
+					                </div>
+					            </div>
+					        </div>
+	                 </div>
+          </div> 
+    
+    </div>
+<!--         <span sec:authorize="isAnonymous()">assiar</span>  -->
+    
+<!--     <span sec:authorize="isAuthenticated()">nouha</span>  -->
+<!--     <span sec:authorize=hasRole('ROLE _ADMIN')">hello</span> -->
+
+    </div>
+    
+
+    		
+    </div>
+    
+   
+</body>
+</html>

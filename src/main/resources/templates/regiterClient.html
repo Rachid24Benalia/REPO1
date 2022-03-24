@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  >
+  <head>
+<meta charset="UTF-8">
+<title>s'inscrire</title>
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+ <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+</head>
+<body>
+	
+	
+	<div class="wrapper" style="background-image: url('images/bg-registration-form-3.jpg');">
+			<div class="inner">
+				<form th:action="@{/saveClient}" method="post">
+					<h3>Inscrivez-vous</h3>
+					
+					<div class="form-group">
+					
+						<div class="form-wrapper">
+							<label for="">Nom :</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-account-o"></i>
+								<input type="text" class="form-control" name="nom" required/>
+							</div>
+						</div>
+
+                        <div class="form-wrapper">
+							<label for="">Prenom :</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-account-o"></i>
+								<input type="text" class="form-control" name="prenom" required/>
+							</div>
+						</div>
+                
+					</div>
+					
+					
+					
+					<div class="form-group">
+					
+                        <div class="form-wrapper">
+							<label for="">Email :</label>
+							<div class="form-holder">
+								<i style="font-style: normal; font-size: 15px;">@</i>
+								<input type="email" class="form-control" name="email" required/>
+							</div>
+						</div> 
+						
+						<div class="form-wrapper">
+							<label for="">Mot de passe :</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-lock-outline"></i>
+								<input type="password" class="form-control" placeholder="********" name="password" required />
+							</div>
+						</div>
+						
+					</div>
+
+                    <div class="form-group phone">
+                    
+                        <div class="form-wrapper">
+							<label for="">Numero de télephone :</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-phone-end" style="font-style: normal; font-size: 15px;"></i>
+								<input type="text" class="form-control" name="phone" />
+							</div>
+						</div> 
+						
+                        <div class="form-wrapper">
+							<label for="">Ville :</label>
+							<div class="form-holder select">
+								<select name="ville" id="" class="form-control" required>
+									<option value="rabat">Rabat</option>
+									<option value="agadir">Agadir</option>
+									<option value="tanger">Tanger</option>
+									<option value="casablanca">Casablanca</option>
+									<option value="marrakech">Marrakech</option>
+									<option value="ifran">Ifran</option>
+									<option value="tetouan">Tétouan</option>
+									<option value="laayoun">Laayoun</option>
+									<option value="meknes">Méknes</option>
+									<option value="fes">Fés</option>
+									
+								</select>
+								<i class="zmdi zmdi-pin"></i>
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+							<div class="form-wrapper">
+							<label for="">CIN:</label>
+							<div class="form-holder">
+<i class="zmdi zmdi-account-box"></i>
+						<input type="text" class="form-control"  name="cin" required />
+							</div>
+						</div>
+						<div class="radio">
+							<label for="">Je suis :</label>
+							<div class="form-holder gender">
+							    <input type="radio" name="gender" value="mariée" />Mariée
+                                <input type="radio" name="gender" value="marié"/>Marié
+                                <input type="radio" name="gender" value="autres"/>Autres
+							</div>
+						</div>
+						
+
+					</div>
+					<div class="form-end">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" />J'accepte les conditions d'utlisation et de confidentialité.
+								<span class="checkmark"></span>
+							</label>
+						</div>
+						<div class="button-holder">
+							<button type="submit">M'inscrire</button>
+						</div>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+		
+</body>
+</html>

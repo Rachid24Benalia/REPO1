@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+layout:decorate="~{template1.html}"
+  ><head>
+<meta charset="UTF-8">
+<title>Services </title>
+ <link rel="stylesheet" type="text/css"
+ th:href="@{/css/services.css}"/>
+</head>
+<body>
+        <div layout:fragment="content">
+               <div class="row recherche">
+        <div class="col-md-3 addmarging">
+            <div class="filter">
+                <h3>SERVICES CATEGORIES</h3>
+                <ul>
+                    <li><a th:href="@{/services?type=salle&ville=''&invite=0&prix=0}">Salle de reception</a></li>
+                    <li><a th:href="@{/services?type=traiteur&ville=''&invite=0&prix=0}">Traiteur</a></li>
+                    <li><a th:href="@{/services?type=photographe&ville=''&invite=0&prix=0}">Photographe</a></li>
+                    <li><a th:href="@{/services?type=neggafa&ville=''&invite=0&prix=0}">Neggafa</a></li>
+                    <li><a th:href="@{/services?type=orchestre&ville=''&invite=0&prix=0}">Orchestre</a></li>
+                    <li><a th:href="@{/services?type=transport&ville=''&invite=0&prix=0}">Transport</a></li>
+                </ul>
+            </div>
+          <form action="/services" method="GET"> 
+	            <div class="filter">
+	                <h3>PRICE</h3>
+	                	 <input type="range" name="prix" min="2000" max="12000"  id="prix" onchange="setPrix()">
+	                     <span id="prixValue"></span>
+	                  <button  class="lien ok" type="submit">FILTER</button>
+	            </div>
+	            
+	            <div class="filter">
+	                <h3>LOCALISATION</h3>
+	                 <input type="text"  th:value=${type} name="type" id="typelabel">
+	                 <select class="form-select choisir" name="ville" aria-label="Default select example">
+	                    <option selected value="">Choisir la ville</option>
+	                    <option value="Rabat">Rabat</option>
+	                    <option value="Casablanca">Casablanca</option>
+	                    <option value="Marrackech">Marrakech</option>
+	                  </select>
+	                  <button  class="lien" type="submit">FILTER</button>
+	            </div>
+	            <div class="filter">
+	                <h3>NOMBRE D'INVITÉS</h3>
+	                   <div class="form-check">
+	                    <input class="form-check-input" type="checkbox" value="100" id="flexCheckDefault" name="invite">
+	                    0-99
+	                </div>
+	                <div class="form-check">
+	                    <input class="form-check-input" type="checkbox" value="200" name="invite" id="flexCheckDefault">
+	                    100-199
+	                </div>
+	                <div class="form-check">
+	                    <input class="form-check-input" type="checkbox" value="300" name="invite" id="flexCheckDefault">
+	                    200-299
+	                </div>
+	                <div class="form-check">
+	                    <input class="form-check-input" type="checkbox" value="400" name="invite" id="flexCheckDefault">
+	                    300-399
+	                </div>
+	                  <button  class="lien" type="submit">FILTER</button>
+                </div>
+           </form>      
+        </div>
+        <div class="col-md-9 ">
+<span th:if="${noResult != null}" th:text="${noResult}" id="noResult"></span>
+            <div class="row ligne">
+                <div class="col-md-4" th:each="s:${services}">
+                   <div class="card">
+                      <img th:src="@{${'/..'+s.images[0].chemain_image }}"  alt=""/>
+                      <form onsubmit="return sendData();" method="post">
+	                      <button th:onclick="'like(\'' + ${s.id_service} + '\');'" th:value="${s.id_service}"  id="serl" type="submit">
+	                       <i class="fa fa-heart favori" aria-hidden="true" th:id="${s.id_service}"></i>
+	                      </button>
+	                      <input id="flag" value="ok" name="flag"/>
+	                     <input id="id_service" th:value="${s.id_service}" name="id"/>
+                      </form>
+                      <div class="info">
+                        <h3 th:text="${s.nom_service}"></h3>
+                        <h4><i class="fa fa-star"></i><label th:text="${s.rating}"></label>- <label th:text="${s.ville}"></label></h4>
+                        <h4>A partir de <label th:text="${s.Budget_service}"></label>Dh 
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                         <label th:text="${s.nbr_invites_min}"></label>-<label th:text="${s.nbr_invites_max}"></label>
+                        </h4>
+                        <a  th:href="@{${'/detail?idService='+s.id_service}}">
+                        <button>Nous contacter</button>
+                        </a>
+                      </div>
+                   </div>
+                </div>
+              
+            </div>       
+        </div>
+
+    </div>
+        </div>
+</body>
+</html>

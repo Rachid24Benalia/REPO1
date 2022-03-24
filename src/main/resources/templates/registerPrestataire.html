@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  >
+  <head>
+<meta charset="UTF-8">
+<title>Inscrivez-vous</title>
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+ <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+
+</head>
+<body>
+      <div class="wrapper" style="background-image: url('images/bg-registration-form-3.jpg');">
+			<div class="inner">
+				<form th:action="@{/savePrestataire}" method="post">
+					<h3>Inscrivez-vous</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<label for="">Nom:</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-account-o"></i>
+								<input type="text" class="form-control" name="nom">
+							</div>
+						</div>
+                        <div class="form-wrapper">
+							<label for="">Prenom:</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-account-o"></i>
+								<input type="text" class="form-control" name="prenom">
+							</div>
+						</div>
+                
+					</div>
+					<div class="form-group">
+                        <div class="form-wrapper">
+							<label for="">Email:</label>
+							<div class="form-holder">
+								<i style="font-style: normal; font-size: 15px;">@</i>
+								<input type="text" class="form-control" name="email">
+							</div>
+						</div> 
+						<div class="form-wrapper">
+							<label for="">Mot de passe:</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-lock-outline"></i>
+								<input type="password" class="form-control" placeholder="********" name="password">
+							</div>
+						</div>
+					</div>
+
+                    <div class="form-group phone">
+                        <div class="form-wrapper">
+							<label for="">Numero de télephone:</label>
+							<div class="form-holder">
+								<i class="zmdi zmdi-phone-end" style="font-style: normal; font-size: 15px;"></i>
+								<input type="text" class="form-control" name="phone">
+							</div>
+						</div> 
+                        <div class="form-wrapper">
+							<label for="">CIN:</label>
+							<div class="form-holder">
+								<input type="text" class="form-control" name="cin">
+							</div>
+						</div> 
+                      
+
+					</div>
+					<div class="form-group">
+                        <div class="form-wrapper">
+							<label for="">Service:</label>
+							<div class="form-holder select">
+								<select name="Typeservice" id="" class="form-control">
+									<option value="traiteur">Traiteur</option>
+									<option value="salle">Salle de reception</option>
+									<option value="photographe">Photographe</option>
+                                    <option value="neggafa">neggafa</option>
+                                    <option value="orchestre">Orchestre et musqiue</option>
+                                    <option value="transport">transport</option>
+                                    
+								</select>
+							</div>
+						</div>
+
+                        <div class="form-wrapper">
+							<label for="">Ville:</label>
+							<div class="form-holder select">
+								<select name="ville" id="" class="form-control">
+								    <option value="rabat">Rabat</option>
+									<option value="agadir">Agadir</option>
+									<option value="tanger">Tanger</option>
+									<option value="casablanca">Casablanca</option>
+									<option value="marrakech">Marrakech</option>
+									<option value="ifran">Ifran</option>
+									<option value="tetouan">Tétouan</option>
+									<option value="laayoun">Laayoun</option>
+									<option value="meknes">Méknes</option>
+									<option value="fes">Fés</option>
+								</select>
+								<i class="zmdi zmdi-pin"></i>
+							</div>
+						</div>
+					</div>
+
+                    <div class="form-group">
+                        <div class="form-wrapper">
+							<label for="">Nom d'Entreprise:</label>
+							<div class="form-holder">
+								<input type="text" class="form-control" name="entreprise">
+							</div>
+						</div> 
+						<div class="form-wrapper exp">
+							<label for="">Expérience:</label>
+							<div class="form-holder">
+								<input type="number" class="form-control" name="experience" >
+							</div>
+						</div>
+						  <div class="form-wrapper last">
+							<label for="">Siege Social:</label>
+							<div class="form-holder">
+								<input type="text" class="form-control" name="adresse">
+							</div>
+						</div> 
+					</div>
+
+					<div class="form-end">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox">J'accepte les conditions d'utlisation et de confidentialité.
+								<span class="checkmark"></span>
+							</label>
+						</div>
+						<div class="button-holder">
+							<button>M'inscrire</button>
+						</div>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+		
+</body>
+</html>
